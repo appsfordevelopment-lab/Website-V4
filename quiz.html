@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Is Tyme Boxed for me? - Find out in 2 minutes</title>
+  <meta name="description"
+    content="Eight honest questions. No judgement. By the end, you'll know exactly where your attention stands — and whether Tyme Boxed is right for you.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="B11.png">
+</head>
+
+<body>
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-logo"><img src="B1.png" alt="Tyme Boxed"></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="science.html">The Science</a></li>
+        <li><a href="quiz.html" class="active">Is Tyme Boxed for me?</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="preorder.html" class="nav-cta">
+          Order now
+          <svg class="nav-cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="7" y1="17" x2="17" y2="7" />
+            <polyline points="7 7 17 7 17 17" />
+          </svg>
+        </a>
+        <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== QUIZ PAGE ========== -->
+  <div class="quiz-page">
+    <div class="quiz-container">
+
+      <!-- Progress Bar -->
+      <div class="quiz-progress" id="quizProgress">
+        <div class="quiz-progress-bar">
+          <div class="quiz-progress-fill" id="quizProgressFill" style="width: 0%"></div>
+        </div>
+        <span class="quiz-progress-text" id="quizProgressText">0/4 questions answered</span>
+      </div>
+
+      <!-- Slide Viewport -->
+      <div class="quiz-slider" id="quizSlider">
+
+        <!-- ===== Q1: What brings you here ===== -->
+        <div class="quiz-slide active" id="quizStep1" data-step="1">
+          <h2>What brings you here today?</h2>
+          <p class="quiz-subtitle">Select everything that feels true - there are no wrong answers</p>
+
+          <div class="quiz-options" data-multi="true">
+            <div class="quiz-option" data-value="presence" data-points="0">
+              <div class="quiz-checkbox"></div>
+              <span>I want to be more present - at meals, in conversations, in my own head</span>
+            </div>
+            <div class="quiz-option" data-value="focus" data-points="0">
+              <div class="quiz-checkbox"></div>
+              <span>I want to focus for more than a few minutes without reaching for my phone</span>
+            </div>
+            <div class="quiz-option" data-value="sleep" data-points="0">
+              <div class="quiz-checkbox"></div>
+              <span>I want to stop being on my phone until midnight and actually sleep</span>
+            </div>
+            <div class="quiz-option" data-value="tried" data-points="0">
+              <div class="quiz-checkbox"></div>
+              <span>I've tried screen time limits, deleted apps, used willpower - none of it stuck</span>
+            </div>
+            <div class="quiz-option" data-value="guilt" data-points="0">
+              <div class="quiz-checkbox"></div>
+              <span>I just want the low-level guilt about my screen time to stop</span>
+            </div>
+          </div>
+
+          <button class="quiz-next" id="quizNext1">Next</button>
+        </div>
+
+
+        <!-- ===== Q2: Past attempts ===== -->
+        <div class="quiz-slide" id="quizStep2" data-step="2">
+          <h2>Which of these sound<br>familiar to you?</h2>
+          <p class="quiz-subtitle">Select all that apply - be honest with yourself</p>
+
+          <div class="quiz-options" data-multi="true">
+            <div class="quiz-option" data-value="screenlimits" data-points="0">
+              <div class="quiz-checkbox"></div>
+              <span>I set Screen Time limits and tapped "Ignore Limit" without thinking</span>
+            </div>
+            <div class="quiz-option" data-value="deleting" data-points="0">
+              <div class="quiz-checkbox"></div>
+              <span>I deleted Instagram (or similar) and reinstalled it within a week</span>
+            </div>
+            <div class="quiz-option" data-value="phantom" data-points="0">
+              <div class="quiz-checkbox"></div>
+              <span>I've felt my phone buzz in my pocket when it wasn't actually buzzing</span>
+            </div>
+            <div class="quiz-option" data-value="opened" data-points="0">
+              <div class="quiz-checkbox"></div>
+              <span>I've opened an app and immediately forgotten why I opened it</span>
+            </div>
+            <div class="quiz-option" data-value="willpower" data-points="0">
+              <div class="quiz-checkbox"></div>
+              <span>I've told myself "I need to use my phone less" more than once this month</span>
+            </div>
+          </div>
+
+          <button class="quiz-next" id="quizNext2">Next</button>
+        </div>
+
+
+        <!-- ===== Q3: The Dopamine Itch (SCORED) ===== -->
+        <div class="quiz-slide" id="quizStep3" data-step="3">
+          <h2>You sit down to work, read,<br>or just be quiet. How long before<br>your phone is in your hand?</h2>
+          <p class="quiz-subtitle">Be honest - your brain isn't watching</p>
+
+          <div class="quiz-options" data-multi="false">
+            <div class="quiz-option" data-value="under5" data-points="25">
+              <div class="quiz-radio"></div>
+              <span>Less than 5 minutes - the urge comes before I've even started</span>
+            </div>
+            <div class="quiz-option" data-value="5to15" data-points="15">
+              <div class="quiz-radio"></div>
+              <span>5–15 minutes - I make it a little while before the pull comes</span>
+            </div>
+            <div class="quiz-option" data-value="15to30" data-points="10">
+              <div class="quiz-radio"></div>
+              <span>15–30 minutes - I can hold focus for a bit but it doesn't last</span>
+            </div>
+            <div class="quiz-option" data-value="over30" data-points="5">
+              <div class="quiz-radio"></div>
+              <span>30+ minutes - I can focus for stretches without being interrupted by the urge</span>
+            </div>
+          </div>
+
+          <button class="quiz-next" id="quizNext3">Next</button>
+        </div>
+
+
+        <!-- ===== Q4: PFC Control (SCORED) ===== -->
+        <div class="quiz-slide" id="quizStep4" data-step="4">
+          <h2>Your screen time limit appears:<br>"You've reached your limit<br>for Instagram."</h2>
+          <p class="quiz-subtitle">What actually happens in that moment?</p>
+
+          <div class="quiz-options" data-multi="false">
+            <div class="quiz-option" data-value="daily" data-points="25">
+              <div class="quiz-radio"></div>
+              <span>I tap "Ignore Limit" instantly - it's pure muscle memory at this point</span>
+            </div>
+            <div class="quiz-option" data-value="fewweek" data-points="15">
+              <div class="quiz-radio"></div>
+              <span>I ignore it more often than not - but sometimes I do close the app</span>
+            </div>
+            <div class="quiz-option" data-value="rarely" data-points="5">
+              <div class="quiz-radio"></div>
+              <span>I usually close the app - I slip occasionally but limits mostly work for me</span>
+            </div>
+          </div>
+
+          <button class="quiz-next" id="quizNext4">See your results</button>
+        </div>
+
+      </div><!-- /quiz-slider -->
+
+
+      <!-- ===== SCIENCE TRANSITION ===== -->
+      <div class="quiz-transition" id="quizTransition">
+        <div class="quiz-transition-inner">
+          <div class="quiz-transition-icon">🧠</div>
+          <h3>Analysing your attention profile…</h3>
+          <p>Your answers reveal how your <strong>Prefrontal Cortex (PFC)</strong> - the brain region responsible for impulse control and conscious decision-making - is holding up against the demands of modern phone use.</p>
+          <p>Tyme Boxed uses <strong>physical friction-based intervention</strong> to help the PFC re-engage before a scrolling impulse becomes automatic action.</p>
+          <div class="quiz-transition-loader">
+            <div class="quiz-transition-bar"></div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- ===== RESULT PAGE ===== -->
+      <div class="quiz-result" id="quizResult">
+
+        <div class="quiz-result-split">
+          <div class="quiz-result-left">
+            <span class="section-label" id="resultLabel">YOUR RESULT</span>
+            <h2 id="resultHeadline">Tyme Boxed is a strong fit for you.</h2>
+            <p id="resultSubtext">Based on your answers, your Prefrontal Cortex is in a high-reactive state - constantly overloaded by automatic impulses and dopamine-driven interruptions. Tyme Boxed was built precisely for this.</p>
+
+            <!-- Stats -->
+            <h3 class="result-stats-heading">What users at your stage report after 4 weeks:</h3>
+            <div class="quiz-result-stats" id="resultStats">
+              <div class="result-stat-card">
+                <span class="result-stat-chevron">›</span>
+                <div class="result-stat-label">Mood</div>
+                <div class="result-stat-pct" data-stat="mood">+77%</div>
+              </div>
+              <div class="result-stat-card">
+                <span class="result-stat-chevron">›</span>
+                <div class="result-stat-label">Focus</div>
+                <div class="result-stat-pct" data-stat="focus">+75%</div>
+              </div>
+              <div class="result-stat-card">
+                <span class="result-stat-chevron">›</span>
+                <div class="result-stat-label">Sleep</div>
+                <div class="result-stat-pct" data-stat="sleep">+70%</div>
+              </div>
+              <div class="result-stat-card">
+                <span class="result-stat-chevron">›</span>
+                <div class="result-stat-label">Presence</div>
+                <div class="result-stat-pct" data-stat="productivity">+63%</div>
+              </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="quiz-result-cta">
+              <div class="quiz-email-form">
+                <p>Get early access at ₹999 </p>
+               
+              </div>
+
+              <a href="preorder.html" class="btn-primary quiz-order-btn">Order now</a>
+              <button class="quiz-retake" id="quizRetake">↻ Re-take Quiz</button>
+            </div>
+          </div>
+
+          <div class="quiz-result-right">
+            <img src="results-lifestyle.png" alt="Peaceful, focused life — reclaiming your attention">
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo"><img src="B1.png" alt="Tyme Boxed"></a>
+          <a href="https://apps.apple.com/in/app/tyme-boxed/id6759287522" target="_blank" rel="noopener noreferrer"
+            class="footer-app-badge" aria-label="Download on the App Store">
+            <img src="app.png" alt="Download on the App Store" class="footer-app-badge-img">
+          </a>
+        </div>
+        <nav class="footer-nav">
+          <div class="footer-nav-group">
+            <span class="footer-nav-label">Product</span>
+            <ul class="footer-links">
+              <li><a href="science.html">The Science</a></li>
+              <li><a href="quiz.html">Is Tyme Boxed for me?</a></li>
+              <li><a href="index.html#how-it-works">How It Works</a></li>
+              <li><a href="index.html#pricing">Pricing</a></li>
+              <li><a href="index.html#faq">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav-group">
+            <span class="footer-nav-label">Support</span>
+            <ul class="footer-links">
+              <li><a href="support.html">Support</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav-group">
+            <span class="footer-nav-label">Legal</span>
+            <ul class="footer-links">
+              <li><a href="privacy.html">Privacy Policy</a></li>
+              <li><a href="terms.html">Terms of Service</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 Tyme Boxed. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
