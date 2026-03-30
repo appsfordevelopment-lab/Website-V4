@@ -572,11 +572,11 @@ p {
   padding: 0 var(--space-lg);
 }
 
-/* Row: headline below the image (same style as problem section) */
+/* Row: headline below the image (same gutter as .hero-container — avoid double horizontal padding) */
 .hero-text-row {
   margin-top: var(--space-lg);
   text-align: center;
-  padding: 0 var(--space-lg);
+  padding: 0;
 }
 
 .hero-headline,
@@ -2764,10 +2764,6 @@ blockquote {
     padding: 0 var(--space-xl);
   }
 
-  .hero-text-row {
-    padding: 0 var(--space-xl);
-  }
-
   .intro-section .container,
   .problem .container,
   .changing-section .container {
@@ -3047,7 +3043,7 @@ blockquote {
   .hero-headline {
     font-size: clamp(1.6rem, 5vw, 2.2rem);
     line-height: 1.4;
-    padding: 0 var(--space-sm);
+    padding: 0;
     word-wrap: break-word;
     overflow-wrap: break-word;
   }
@@ -3055,10 +3051,6 @@ blockquote {
   .hero {
     min-height: auto;
     padding: calc(var(--space-lg) + 60px) 0 var(--space-lg);
-  }
-
-  .hero-text-row {
-    padding: 0 var(--space-md);
   }
 
   .hero .hero-container {
@@ -3089,6 +3081,7 @@ blockquote {
 
   .changing-slide {
     min-height: 40vh;
+    padding: var(--space-md) var(--space-md);
   }
 
   .comparison-row {
@@ -3291,19 +3284,15 @@ blockquote {
   .hero-headline {
     font-size: clamp(1.6rem, 5vw, 2.2rem);
     line-height: 1.45;
-    padding: 0 var(--space-xs);
+    padding: 0;
   }
 
   .hero {
     padding: calc(var(--space-md) + 56px) 0 var(--space-md);
   }
 
-  .hero-text-row {
-    padding: 0 var(--space-md);
-  }
-
   .hero .hero-container {
-    padding: 0 var(--space-sm);
+    padding: 0 var(--space-md);
   }
 
   .container {
