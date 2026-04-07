@@ -1618,10 +1618,6 @@ blockquote {
   width: 100%;
 }
 
-.footer-social {
-  padding-top: calc(0.75rem * 1.4 + var(--space-sm));
-}
-
 .footer-social-links {
   display: flex;
   flex-direction: row;
@@ -1643,7 +1639,7 @@ blockquote {
   justify-content: center;
   min-width: 44px;
   min-height: 44px;
-  color: var(--text-secondary);
+  color: var(--text-muted);
   line-height: 0;
   transition: color var(--duration-fast) var(--ease-smooth),
     transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
@@ -2934,10 +2930,6 @@ blockquote {
     align-items: center;
   }
 
-  .footer-social {
-    padding-top: 0;
-  }
-
   .footer-social-links {
     justify-content: center;
   }
@@ -3263,10 +3255,6 @@ blockquote {
   .footer-nav-group {
     align-items: center;
     text-align: center;
-  }
-
-  .footer-social {
-    padding-top: 0;
   }
 
   .footer-social-links {
