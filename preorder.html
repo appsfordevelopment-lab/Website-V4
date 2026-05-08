@@ -46,19 +46,40 @@
         <!-- Left: Product Images — big image with thumbnails overlaid -->
         <div class="preorder-gallery">
           <div class="preorder-main-image">
-            <img id="preorderMainImg" src="show.png" alt="Tyme Boxed — your physical barrier from infinite scroll">
+            <img id="preorderMainImg" src="img2.png" alt="Tyme Boxed — your physical barrier from infinite scroll">
+            <div class="preorder-gallery-nav" aria-hidden="false">
+              <button type="button" class="preorder-nav-btn preorder-nav-prev" aria-label="Previous image">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+              <button type="button" class="preorder-nav-btn preorder-nav-next" aria-label="Next image">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+            </div>
             <div class="preorder-thumbnails">
-              <button type="button" class="preorder-thumb active" data-img="show.png" aria-label="View main product image">
-                <img src="show.png" alt="">
+              <button type="button" class="preorder-thumb active" data-img="img2.png" aria-label="View product image 2">
+                <img src="img2.png" alt="">
               </button>
-              <button type="button" class="preorder-thumb" data-img="Tab.jpeg" aria-label="View product intro">
-                <img src="Tab.jpeg" alt="">
+              <button type="button" class="preorder-thumb" data-img="img3.png" aria-label="View product image 3">
+                <img src="img3.png" alt="">
               </button>
-              <button type="button" class="preorder-thumb" data-img="Device.jpeg" aria-label="View device">
-                <img src="Device.jpeg" alt="">
+              <button type="button" class="preorder-thumb" data-img="img4.png" aria-label="View product image 4">
+                <img src="img4.png" alt="">
               </button>
-              <button type="button" class="preorder-thumb" data-img="show1.png" aria-label="View device">
-                <img src="show1.png" alt="">
+              <button type="button" class="preorder-thumb" data-img="img5.png" aria-label="View product image 5">
+                <img src="img5.png" alt="">
+              </button>
+              <button type="button" class="preorder-thumb" data-img="img8.png" aria-label="View product image 8">
+                <img src="img8.png" alt="">
+              </button>
+              <button type="button" class="preorder-thumb" data-img="img9.png" aria-label="View product image 9">
+                <img src="img9.png" alt="">
+              </button>
+              <button type="button" class="preorder-thumb" data-img="img10.png" aria-label="View product image 10">
+                <img src="img10.png" alt="">
               </button>
             </div>
           </div>
@@ -329,15 +350,52 @@
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script src="script.js"></script>
   <script>
-    // Thumbnail gallery
-    document.querySelectorAll('.preorder-thumb').forEach(thumb => {
-      thumb.addEventListener('click', () => {
-        document.querySelectorAll('.preorder-thumb').forEach(t => t.classList.remove('active'));
-        thumb.classList.add('active');
-        const img = thumb.dataset.img;
-        document.getElementById('preorderMainImg').src = img;
+    // Product gallery (Brick-style): thumbs + prev/next + keep active thumb visible
+    (function () {
+      const mainImg = document.getElementById('preorderMainImg');
+      const thumbsWrap = document.querySelector('.preorder-thumbnails');
+      const thumbs = Array.from(document.querySelectorAll('.preorder-thumb'));
+      const prevBtn = document.querySelector('.preorder-nav-prev');
+      const nextBtn = document.querySelector('.preorder-nav-next');
+
+      if (!mainImg || !thumbsWrap || thumbs.length === 0) return;
+
+      const images = thumbs.map(t => t.dataset.img).filter(Boolean);
+      let activeIndex = Math.max(0, images.indexOf(mainImg.getAttribute('src')));
+
+      function setActive(index) {
+        if (images.length === 0) return;
+        activeIndex = (index + images.length) % images.length;
+        const src = images[activeIndex];
+        mainImg.src = src;
+
+        thumbs.forEach((t, i) => t.classList.toggle('active', i === activeIndex));
+
+        const activeThumb = thumbs[activeIndex];
+        if (activeThumb && typeof activeThumb.scrollIntoView === 'function') {
+          activeThumb.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        }
+      }
+
+      thumbs.forEach((thumb, i) => {
+        thumb.addEventListener('click', () => setActive(i));
       });
-    });
+
+      if (prevBtn) prevBtn.addEventListener('click', () => setActive(activeIndex - 1));
+      if (nextBtn) nextBtn.addEventListener('click', () => setActive(activeIndex + 1));
+
+      // Keyboard support when focused inside the gallery
+      const gallery = mainImg.closest('.preorder-main-image');
+      if (gallery) {
+        gallery.tabIndex = 0;
+        gallery.addEventListener('keydown', (e) => {
+          if (e.key === 'ArrowLeft') setActive(activeIndex - 1);
+          if (e.key === 'ArrowRight') setActive(activeIndex + 1);
+        });
+      }
+
+      setActive(activeIndex);
+    })();
 
     // GSAP: Pin preorder section, inner content scrolls with page scroll
     gsap.registerPlugin(ScrollTrigger);
