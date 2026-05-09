@@ -47,7 +47,9 @@
         <div class="preorder-gallery">
           <div class="preorder-main-image">
             <div class="preorder-main-image-stage">
-              <img id="preorderMainImg" src="img2.png" alt="Tyme Boxed — your physical barrier from infinite scroll">
+              <div class="preorder-img-fit">
+                <img id="preorderMainImg" src="img2.png" alt="Tyme Boxed — your physical barrier from infinite scroll">
+              </div>
               <div class="preorder-gallery-nav" aria-hidden="false">
                 <button type="button" class="preorder-nav-btn preorder-nav-prev" aria-label="Previous image">
                   <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -374,7 +376,14 @@
         thumbs.forEach((t, i) => t.classList.toggle('active', i === activeIndex));
 
         const activeThumb = thumbs[activeIndex];
-        if (activeThumb && typeof activeThumb.scrollIntoView === 'function') {
+        /* Avoid iOS/mobile viewport jump/zoom-feel from smooth scrollIntoView */
+        const coarsePointer = window.matchMedia('(pointer: coarse)').matches;
+        if (
+          activeThumb &&
+          typeof activeThumb.scrollIntoView === 'function' &&
+          window.matchMedia('(min-width: 901px)').matches &&
+          !coarsePointer
+        ) {
           activeThumb.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
         }
       }
@@ -399,34 +408,53 @@
       setActive(activeIndex);
     })();
 
-    // GSAP: Pin preorder section, inner content scrolls with page scroll
+    // GSAP: Pin preorder section on desktop only (mobile pin/transform feels like unwanted zoom/jank)
     gsap.registerPlugin(ScrollTrigger);
 
     const section = document.getElementById('preorderSection');
     const scrollContent = document.getElementById('preorderScrollContent');
-    if (section && scrollContent) {
+
+    function setupPreorderPinnedScroll() {
+      ScrollTrigger.getById('preorder-pin')?.kill();
+      if (scrollContent) {
+        gsap.set(scrollContent, { y: 0 });
+      }
+
+      if (!section || !scrollContent) return;
+      if (!window.matchMedia('(min-width: 901px)').matches) return;
+
       const viewport = section.querySelector('.preorder-viewport');
       const contentHeight = scrollContent.scrollHeight;
       const viewportHeight = viewport ? viewport.clientHeight : window.innerHeight - 80;
       const scrollDistance = Math.max(0, contentHeight - viewportHeight);
 
-      if (scrollDistance > 50) {
-        gsap.to(scrollContent, {
-          y: -scrollDistance,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: section,
-            start: 'top top',
-            end: `+=${scrollDistance}`,
-            pin: true,
-            scrub: 1
-          }
-        });
+      if (scrollDistance <= 50) return;
 
-        window.addEventListener('resize', () => ScrollTrigger.refresh());
-        setTimeout(() => ScrollTrigger.refresh(), 500);
-      }
+      gsap.to(scrollContent, {
+        y: -scrollDistance,
+        ease: 'none',
+        scrollTrigger: {
+          id: 'preorder-pin',
+          trigger: section,
+          start: 'top top',
+          end: `+=${scrollDistance}`,
+          pin: true,
+          scrub: 1,
+        },
+      });
     }
+
+    setupPreorderPinnedScroll();
+
+    let preorderResizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(preorderResizeTimer);
+      preorderResizeTimer = setTimeout(() => {
+        setupPreorderPinnedScroll();
+        ScrollTrigger.refresh();
+      }, 150);
+    });
+    setTimeout(() => ScrollTrigger.refresh(), 500);
   </script>
   <script type="text/javascript">
     (function (c, l, a, r, i, t, y) {

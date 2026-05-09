@@ -3330,7 +3330,7 @@ blockquote {
   .hero-image-horizontal:hover img,
   .intro-image:hover img,
   .product-image-wrapper:hover img,
-  .preorder-main-image-stage:hover img {
+  .preorder-img-fit:hover img {
     transform: none;
   }
 }
@@ -3437,8 +3437,17 @@ blockquote {
 }
 
 /* Left: Product Gallery — large image with thumbnails overlaid on right */
+.preorder-viewport {
+  width: 100%;
+}
+
+.preorder-scroll-content {
+  width: 100%;
+}
+
 .preorder-gallery {
   position: relative;
+  touch-action: manipulation;
 }
 
 .preorder-main-image {
@@ -3461,16 +3470,28 @@ blockquote {
   bottom: clamp(72px, 7vw, 92px);
 }
 
-.preorder-main-image-stage img {
+/*
+ * Inner frame fills the stage; img uses object-fit so the FULL asset stays visible.
+ * (Flex + width:auto is unreliable on iOS WebKit (“zoomed” look).)
+ */
+.preorder-img-fit {
+  position: absolute;
+  inset: 0;
+  display: block;
+  min-width: 0;
+  min-height: 0;
+}
+
+.preorder-img-fit img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  object-position: center;
+  object-position: center center;
   display: block;
   transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
-.preorder-main-image-stage:hover img {
+.preorder-img-fit:hover img {
   transform: none;
 }
 
@@ -3550,6 +3571,7 @@ blockquote {
 }
 
 .preorder-thumb {
+  touch-action: manipulation;
   width: 56px;
   height: 56px;
   padding: 0;
@@ -3811,6 +3833,10 @@ blockquote {
   }
 
   /* Stack gallery like desktop: full image first, thumbnails below (no overlap) */
+  .preorder-gallery {
+    min-width: 0;
+  }
+
   .preorder-main-image {
     aspect-ratio: unset;
     display: flex;
@@ -3818,17 +3844,56 @@ blockquote {
     gap: var(--space-md);
     padding: clamp(18px, 2.4vw, 28px);
     padding-bottom: clamp(18px, 2.4vw, 28px);
+    overflow: visible;
+    min-width: 0;
   }
 
+  /* Fixed-height frame → image scales uniformly (whole poster stays visible) */
   .preorder-main-image-stage {
+    --preorder-gallery-h: min(70vh, 520px, calc(100vw - 48px));
+    --preorder-gallery-h: min(70dvh, 520px, calc(100vw - 48px));
+
     position: relative;
     top: auto;
     left: auto;
     right: auto;
     bottom: auto;
     width: 100%;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: unset;
     flex-shrink: 0;
+    min-width: 0;
+    overflow: visible;
+    border-radius: var(--radius-md);
+    box-sizing: border-box;
+    background: transparent;
+  }
+
+  .preorder-img-fit {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: var(--preorder-gallery-h);
+    padding: clamp(10px, 3vw, 18px);
+    box-sizing: border-box;
+  }
+
+  .preorder-gallery-nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    bottom: auto;
+    height: var(--preorder-gallery-h);
+    pointer-events: none;
+    z-index: 3;
+  }
+
+  .preorder-img-fit img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center center;
   }
 
   .preorder-thumbnails {
