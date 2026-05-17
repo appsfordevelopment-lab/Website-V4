@@ -40,18 +40,19 @@
   <div class="legal-page">
     <div class="legal-content">
       <h1 class="legal-title">Privacy Policy</h1>
-      <p class="legal-updated">Last updated: March 2026</p>
+      <p class="legal-updated">Last updated: May 2026</p>
 
       <section class="legal-section legal-highlight">
         <h2>Our Core Privacy Promise</h2>
-        <p>We do <strong>NOT</strong> collect, transmit, or store any information about which apps or websites you choose to block. All blocking data stays on your device, protected by Apple's Screen Time framework. We only collect what is strictly necessary to verify your NFC device and provide the Service.</p>
+        <p>We do <strong>NOT</strong> collect, transmit, or store any information about which apps or websites you choose to block. All blocking data stays on your device, protected by Apple's Screen Time framework (on iOS) or Android's on-device app-blocking framework (on Android). We only collect what is strictly necessary to verify your NFC device and provide the Service.</p>
       </section>
 
       <section class="legal-section">
         <h2>1. About Us</h2>
-        <p>Apps For Development is an unregistered business entity operating the Tyme Boxed brand, based in Kukatpally, Hyderabad, Telangana, India. We develop and sell the Tyme Boxed NFC device and accompanying iOS application ("App") to help users manage their smartphone usage through physical NFC-based app blocking.</p>
-        <p>This Privacy Policy describes how we collect, use, store, share, and protect the personal data we receive when you purchase a Tyme Boxed device, use our App, or interact with us. It also sets out your rights as a Data Principal under the Digital Personal Data Protection Act, 2023 (DPDPA) and DPDP Rules, 2025.</p>
-        <p>The iOS application incorporates components from the open-source Foqos project (MIT License, github.com/awaseem/foqos), with modifications by Apps For Development including the NFC device serial number verification system and account management features. The privacy-first, on-device data model of the original project is maintained.</p>
+        <p>Apps For Development is an unregistered business entity operating the Tyme Boxed brand, based in Kukatpally, Hyderabad, Telangana, India. We develop and sell the Tyme Boxed NFC device and accompanying mobile applications for iOS and Android (each an "App", and together the "Apps") to help users manage their smartphone usage through physical NFC-based app blocking.</p>
+        <p>This Privacy Policy describes how we collect, use, store, share, and protect the personal data we receive when you purchase a Tyme Boxed device, use either of our Apps, or interact with us. It also sets out your rights as a Data Principal under the Digital Personal Data Protection Act, 2023 (DPDPA) and DPDP Rules, 2025.</p>
+        <p><strong>iOS application.</strong> The iOS application incorporates components from the open-source Foqos project (MIT License, github.com/awaseem/foqos), with modifications by Apps For Development including the NFC device serial number verification system and account management features. The privacy-first, on-device data model of the original project is maintained.</p>
+        <p><strong>Android application.</strong> The Android application has been developed independently by Apps For Development from the ground up. It does not incorporate or derive from any open-source project, third-party SDK, or external code library for its core app-blocking, NFC verification, or account-management functionality. The same privacy-first, on-device data model is applied: all app-blocking activity is processed exclusively on your device and is never accessible to Apps For Development.</p>
       </section>
 
       <section class="legal-section">
@@ -60,6 +61,7 @@
         <ul class="legal-list">
           <li>All purchasers of a Tyme Boxed NFC device;</li>
           <li>All users of the Tyme Boxed iOS application;</li>
+          <li>All users of the Tyme Boxed Android application;</li>
           <li>Visitors to our website or e-commerce store (if any);</li>
           <li>Any person who contacts us for support.</li>
         </ul>
@@ -70,32 +72,37 @@
         <h2>3. Data We Collect</h2>
         
         <h3>3A. Data You Provide to Us</h3>
-        <p><strong>Purchase Information:</strong> When you buy a Tyme Boxed device, our payment partner collects your name, delivery address, email address, phone number, and payment details. We receive order confirmation details (order number, product purchased, amount paid) but do not directly receive or store full payment card data - that is handled by our PCI-compliant payment processor.</p>
-        <p><strong>Support Communications:</strong> When you contact us at support@tymeboxed.app, we collect the content of your message and any information you provide (such as your order number, device type, and iOS version) to resolve your query.</p>
-        <p><strong>Account Registration:</strong> The App supports account creation via email OTP, Google OAuth, or Apple ID ("Sign in with Apple"). The data we collect depends on the sign-in method:</p>
+        <p><strong>Purchase Information:</strong> When you buy a Tyme Boxed device, our payment partner collects your name, delivery address, email address, phone number, and payment details. We receive order confirmation details (order number, product purchased, amount paid) but do not directly receive or store full payment card data — that is handled by our PCI-compliant payment processor.</p>
+        <p><strong>Support Communications:</strong> When you contact us at support@tymeboxed.app, we collect the content of your message and any information you provide (such as your order number, device type, operating system, and OS version) to resolve your query.</p>
+        <p><strong>Account Registration:</strong> The Apps support account creation via the following methods, depending on platform:</p>
+        <ul class="legal-list">
+          <li><strong>iOS:</strong> Email OTP, Google OAuth, or Apple ID ("Sign in with Apple").</li>
+          <li><strong>Android:</strong> Email OTP or Google OAuth. (Sign in with Apple is not available on Android.)</li>
+        </ul>
+        <p>The data we collect depends on the sign-in method:</p>
         <ul class="legal-list">
           <li><strong>Email OTP:</strong> We collect your email address.</li>
           <li><strong>Google Sign-In:</strong> We receive your name and email address as shared by Google on your behalf.</li>
-          <li><strong>Apple Sign-In:</strong> We receive your name and email address (or Apple's private relay address if you choose to hide your email) as shared by Apple on your behalf.</li>
+          <li><strong>Apple Sign-In (iOS only):</strong> We receive your name and email address (or Apple's private relay address if you choose to hide your email) as shared by Apple on your behalf.</li>
         </ul>
-        <p>We do not collect or store your Google or Apple account passwords - authentication is handled directly by those services. You may delete your account at any time from within the App, which will permanently and irreversibly remove your account data from our systems.</p>
+        <p>We do not collect or store your Google or Apple account passwords — authentication is handled directly by those services. You may delete your account at any time from within the App, which will permanently and irreversibly remove your account data from our systems.</p>
         
         <h3>3B. Data Collected Automatically by the App</h3>
-        <p><strong>NFC Device Serial Number:</strong> When you first tap your Tyme Boxed NFC device against your iPhone, the App reads the device's unique NFC serial number (UID) and transmits it to our backend server via an encrypted HTTPS request. Our server verifies that the serial number corresponds to an authentic Tyme Boxed device and returns a verification token. The verification result is then stored in the App's local cache so that subsequent uses do not require a server call.</p>
-        <p><strong>Technical / Diagnostic Data (minimal):</strong> Our servers may automatically log basic technical data associated with verification requests, including the request timestamp, iOS version, App version, and anonymised IP address. This data is used solely to diagnose errors and protect against fraudulent verification requests.</p>
+        <p><strong>NFC Device Serial Number:</strong> When you first tap your Tyme Boxed NFC device against your iPhone or Android device, the App reads the device's unique NFC serial number (UID) and transmits it to our backend server via an encrypted HTTPS request. Our server verifies that the serial number corresponds to an authentic Tyme Boxed device and returns a verification token. The verification result is then stored in the App's local cache so that subsequent uses do not require a server call.</p>
+        <p><strong>Technical / Diagnostic Data (minimal):</strong> Our servers may automatically log basic technical data associated with verification requests, including the request timestamp, operating system (iOS or Android), OS version, App version, device model (generic, e.g. "Pixel 8" or "iPhone 15"), and anonymised IP address. This data is used solely to diagnose errors and protect against fraudulent verification requests.</p>
         
         <h3>3C. Data We Do NOT Collect</h3>
         <p>We explicitly do <strong>NOT</strong> collect any of the following:</p>
         <ul class="legal-list">
-          <li>The names, bundle IDs, or categories of apps you block;</li>
+          <li>The names, package IDs, bundle IDs, or categories of apps you block;</li>
           <li>Which websites you block;</li>
           <li>The duration or timing of your blocking sessions;</li>
-          <li>Your Screen Time reports or usage statistics;</li>
+          <li>Your Screen Time reports, Digital Wellbeing data, or usage statistics;</li>
           <li>Your location data;</li>
-          <li>Contacts, calendar, photos, or any other personal device data;</li>
-          <li>Any biometric data (Face ID / Touch ID data).</li>
+          <li>Contacts, calendar, photos, SMS, call logs, or any other personal device data;</li>
+          <li>Any biometric data (Face ID / Touch ID / Fingerprint / Face Unlock data).</li>
         </ul>
-        <p>All App-blocking activity is processed exclusively on-device by Apple's Screen Time API and is never accessible to Apps For Development.</p>
+        <p>All App-blocking activity is processed exclusively on-device — by Apple's Screen Time API on iOS, and by Android's on-device app-blocking mechanism (using locally-stored block lists and the Android system's app-restriction capabilities) on Android. In neither case is this data accessible to Apps For Development.</p>
       </section>
 
       <section class="legal-section">
@@ -103,7 +110,7 @@
         <p>We process your data only for the following purposes, and only to the extent necessary for each:</p>
         <ul class="legal-list">
           <li>Verifying your NFC device and enabling the App;</li>
-          <li>Creating and managing your account (email OTP, Google OAuth, or Apple ID);</li>
+          <li>Creating and managing your account (email OTP, Google OAuth, or, on iOS only, Apple ID);</li>
           <li>Processing and fulfilling your orders;</li>
           <li>Communicating order confirmations, shipping updates, and support;</li>
           <li>Responding to your inquiries and resolving support requests;</li>
@@ -119,8 +126,9 @@
         <p><strong>5.1 Payment Processors.</strong> We share your name, contact, and order details with our payment gateway providers to process your purchase. These providers operate under their own privacy policies and are PCI-DSS compliant.</p>
         <p><strong>5.2 Logistics / Shipping Partners.</strong> We share your delivery name and address with courier or logistics services solely for the purpose of delivering your order.</p>
         <p><strong>5.3 Cloud Hosting / Backend Providers.</strong> Our NFC verification backend is hosted on cloud infrastructure (e.g., AWS, Google Cloud, or similar). We select providers with appropriate data protection standards and contractual obligations.</p>
-        <p><strong>5.4 Legal Obligations.</strong> We may disclose your data when required to do so by applicable law, court order, or lawful request from a government authority. Where permitted by law, we will notify you before making such disclosure.</p>
-        <p><strong>5.5 Business Transfers.</strong> In the event of a merger, acquisition, or sale of all or substantially all of our assets, your data may be transferred to the acquiring entity. We will provide notice of such transfer and inform you of any material changes to how your data will be processed.</p>
+        <p><strong>5.4 App Distribution Platforms.</strong> The iOS App is distributed exclusively through the Apple App Store, and the Android App is distributed through the Google Play Store (and, where applicable, direct APK download from our website). Apple and Google may collect their own data (such as install metrics, crash reports, and aggregated analytics) under their respective privacy policies. We do not control and are not responsible for the data practices of Apple or Google as platform operators.</p>
+        <p><strong>5.5 Legal Obligations.</strong> We may disclose your data when required to do so by applicable law, court order, or lawful request from a government authority. Where permitted by law, we will notify you before making such disclosure.</p>
+        <p><strong>5.6 Business Transfers.</strong> In the event of a merger, acquisition, or sale of all or substantially all of our assets, your data may be transferred to the acquiring entity. We will provide notice of such transfer and inform you of any material changes to how your data will be processed.</p>
       </section>
 
       <section class="legal-section">
@@ -143,7 +151,7 @@
 
       <section class="legal-section">
         <h2>8. Children's Privacy</h2>
-        <p>The App is not directed at children under the age of 13. We do not knowingly collect personal data from children under 13 without verifiable parental consent. The App uses Apple's Family Controls framework, which may be configured to be used for a child's device under parental supervision. In such cases, the parent or guardian who purchases the device and authorises the App is the Data Principal in relation to any personal data processed.</p>
+        <p>The Apps are not directed at children under the age of 13. We do not knowingly collect personal data from children under 13 without verifiable parental consent. The iOS App uses Apple's Family Controls framework, and the Android App uses Android's parental-supervision capabilities, each of which may be configured for use on a child's device under parental supervision. In such cases, the parent or guardian who purchases the device and authorises the App is the Data Principal in relation to any personal data processed.</p>
         <p>As required by the DPDPA, if we become aware that we have inadvertently collected personal data of a child under 18 without verifiable parental/guardian consent, we will promptly delete such data. Parents or guardians may contact us at support@tymeboxed.app to request deletion of their child's data.</p>
       </section>
 
@@ -151,9 +159,9 @@
         <h2>9. Data Security</h2>
         <p>We implement appropriate technical and organisational security measures to protect your personal data against unauthorised access, loss, alteration, or disclosure, including:</p>
         <ul class="legal-list">
-          <li>All communication between the App and our backend servers is encrypted using TLS/HTTPS;</li>
+          <li>All communication between the Apps (iOS and Android) and our backend servers is encrypted using TLS/HTTPS;</li>
           <li>NFC serial numbers stored on our servers are stored with access controls and restricted to authorised personnel only;</li>
-          <li>We conduct periodic security reviews of our backend infrastructure;</li>
+          <li>We conduct periodic security reviews of our backend infrastructure and both Apps;</li>
           <li>We do not store full payment card details on our servers.</li>
         </ul>
         <p>No security system is completely impenetrable. In the event of a personal data breach, we will notify affected Data Principals and the Data Protection Board of India as required under the DPDPA and DPDP Rules.</p>
@@ -164,7 +172,7 @@
         <p>As a Data Principal under the Digital Personal Data Protection Act, 2023, you have the following rights with respect to your personal data:</p>
         <p><strong>10.1 Right to Access.</strong> You may request a summary of the personal data we hold about you and how we process it.</p>
         <p><strong>10.2 Right to Correction.</strong> You may request correction of any inaccurate or outdated personal data we hold.</p>
-        <p><strong>10.3 Right to Erasure.</strong> You may request deletion of your personal data. We will comply unless retention is required by law (e.g., financial records retention obligations). Note: deletion of your NFC serial number from our database will deactivate your device's ability to verify and use the App.</p>
+        <p><strong>10.3 Right to Erasure.</strong> You may request deletion of your personal data. We will comply unless retention is required by law (e.g., financial records retention obligations). Note: deletion of your NFC serial number from our database will deactivate your device's ability to verify and use the App on either platform.</p>
         <p><strong>10.4 Right to Withdraw Consent.</strong> Where we process your data based on consent, you may withdraw that consent at any time without affecting the lawfulness of processing prior to withdrawal.</p>
         <p><strong>10.5 Right to Grievance Redressal.</strong> You have the right to have your privacy grievances addressed by our Grievance Officer (see Section 12). If your grievance is not resolved satisfactorily, you may lodge a complaint with the Data Protection Board of India.</p>
         <p><strong>10.6 Right to Nominate.</strong> You have the right to nominate an individual to exercise your rights in the event of your death or incapacity.</p>
@@ -173,8 +181,8 @@
 
       <section class="legal-section">
         <h2>11. Cookies and Tracking</h2>
-        <p>The Tyme Boxed iOS application does not use cookies. If we operate a website or e-commerce store, that platform may use cookies for functionality and analytics purposes. Any such use will be disclosed in a separate cookie notice on that website.</p>
-        <p>The App does not include third-party advertising SDKs, tracking frameworks (e.g., Facebook SDK, Google Firebase Analytics), or behavioural analytics tools.</p>
+        <p>Neither the Tyme Boxed iOS application nor the Tyme Boxed Android application uses cookies. If we operate a website or e-commerce store, that platform may use cookies for functionality and analytics purposes. Any such use will be disclosed in a separate cookie notice on that website.</p>
+        <p>Neither App includes third-party advertising SDKs, tracking frameworks (e.g., Facebook SDK, Google Firebase Analytics, AppsFlyer, Adjust), or behavioural analytics tools. The Android App, in particular, has been built from scratch by Apps For Development without integrating any third-party open-source or proprietary analytics/tracking libraries.</p>
       </section>
 
       <section class="legal-section">
